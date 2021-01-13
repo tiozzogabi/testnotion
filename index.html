@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style type="text/css">
+
+.content{
+    position: relative; 
+    width: 444px;
+    height: 143px;
+    margin-top: 130px;
+    background-color: #F3F3F3;
+    border-radius: 29px;
+    border: 1px solid black;
+    display: flex;
+ }
+.dia{
+    background-color: pink;
+    border-radius: 29px 0 0 29px;
+    display: flex;
+    flex-direction: column;
+    width:143px;
+    height: 143px;
+    align-items: center;
+    justify-content: center;
+    color: #F3F3F3;
+}
+
+.msg{
+    width: 301px;
+    border-radius: 0 29px 29px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p{
+    font-family: arial;
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.day{
+    font-family: arial;
+    font-size: 68px;
+    font-weight: bold;
+}
+
+.month, .week {
+    align-self: flex-start;
+    margin-left: 30px;
+    font-size: 18px;
+    font-family: arial;
+}
+
+img{
+    width: 155px;
+    height: 170px;
+    position: absolute;
+    z-index: 2;
+    margin-left: 280px;
+    margin-top: -120px; 
+}
+
+</style>
+
+</head>
+<body>
+
+    <img src="mai.png" alt="" class="img-month">
+    <div class="content">
+        <div class="dia">
+        <span class="month">Jan</span>
+        <span class="day">08</span>
+        <span class="week">Sex</span>
+        </div>
+        <div class="msg">
+        <p>Bom Dia!</p>
+        </div>
+    </div>
+
+</body>
+</html>
