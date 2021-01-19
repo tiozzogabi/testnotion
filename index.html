@@ -6,6 +6,9 @@
 
 <style type="text/css">
 
+body{
+    background-color: #2f3437
+}
 .content{
     position: relative; 
     width: 444px;
@@ -17,7 +20,7 @@
     display: flex;
  }
 .dia{
-    background-color: pink;
+    background-color: #F96549;
     border-radius: 29px 0 0 29px;
     display: flex;
     flex-direction: column;
@@ -38,7 +41,7 @@
 
 p{
     font-family: arial;
-    font-size: 60px;
+    font-size: 55px;
     font-weight: bold;
 }
 
@@ -55,7 +58,13 @@ p{
     font-family: arial;
 }
 
-img{
+.img-month{
+    display: none;
+    
+}
+
+.active{
+    display: block;
     width: 155px;
     height: 170px;
     position: absolute;
@@ -69,18 +78,150 @@ img{
 </head>
 <body>
 
-    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/039.png" alt="" class="img-month">
+    <img src="./img/jan.png" alt="" class="img-month ja">
+    <img src="./img/fev.png" alt="" class="img-month fe">
+    <img src="./img/mar.png" alt="" class="img-month mr">
+    <img src="./img/abr.png" alt="" class="img-month ab">
+    <img src="./img/mai.png" alt="" class="img-month ma">
+    <img src="./img/jun.png" alt="" class="img-month jn">
+    <img src="./img/jul.png" alt="" class="img-month jl">
+    <img src="./img/ago.png" alt="" class="img-month ag">
+    <img src="./img/set.png" alt="" class="img-month se">
+    <img src="./img/out.png" alt="" class="img-month ou">
+    <!-- Arrumar imagens ------------------------------->
+    <img src="./img/nov.png" alt="" class="img-month no">
+    <img src="./img/dec.png" alt="" class="img-month de">
+
     <div class="content">
         <div class="dia">
-        <span class="month">Mai</span>
-        <span class="day">08</span>
-        <span class="week">Sex</span>
+        <span class="month"></span>
+        <span class="day"></span>
+        <span class="week"></span>
         </div>
         <div class="msg">
-        <p>Bom Dia!</p>
+        <p class="hour">Bom Dia!</p>
         </div>
-        <div></div>
     </div>
+<script type="text/javascript">
 
+//datas atualizadas
+var data = new Date();
+var hora = data.getHours();
+var diaDaSemana = data.getDay();
+var dia = data.getDate();
+var mes = data.getMonth();
+
+console.log(hora)
+//configuração mensagem
+var hourNow = document.querySelector('.hour');
+
+if(hora > 05 || hora < 12 ){
+    hourNow.innerHTML = "Bom Dia!";
+} if (hora >= 12 || hora <= 18) {
+    hourNow.innerHTML = "Boa Tarde!";
+}  if (hora > 18 || hora <= 04){
+    hourNow.innerHTML = "Boa Noite!"
+}
+
+//configuração dia
+var todaysDate = document.querySelector('.day');
+todaysDate.innerHTML = dia;
+
+//configuração mês
+var todaysMonth = document.querySelector('.month');
+var imgJa = document.querySelector('.ja');
+var imgFe = document.querySelector('.fe');
+var imgMr = document.querySelector('.mr');
+var imgAb = document.querySelector('.ab');
+var imgMa = document.querySelector('.ma');
+var imgJn = document.querySelector('.jn');
+var imgJl = document.querySelector('.jl');
+var imgAg = document.querySelector('.ag');
+var imgSe = document.querySelector('.se');
+var imgOu = document.querySelector('.ou');
+var imgNo = document.querySelector('.no');
+var imgDe = document.querySelector('.de');
+
+if(mes == 0){
+    todaysMonth.innerHTML = "Jan";
+    imgJa.classList.toggle('active');
+    
+} if(mes == 1){
+    todaysMonth.innerHTML = "Fev";
+    imgJa.classList.remove('active');
+    imgFe.classList.toggle('active');
+  
+} if(mes == 2){
+    todaysMonth.innerHTML = "Mar";
+    imgFe.classList.remove('active');
+    imgMr.classList.toggle('active');
+  
+} if(mes == 3){
+    todaysMonth.innerHTML = "Abr";
+    imgMr.classList.remove('active');
+    imgAb.classList.toggle('active');
+
+} if(mes == 4){
+    todaysMonth.innerHTML = "Mai";
+    imgAb.classList.remove('active');
+    imgMa.classList.toggle('active');
+
+} if(mes == 5){
+    todaysMonth.innerHTML = "Jun";
+    imgMa.classList.remove('active');
+    imgJn.classList.toggle('active');
+
+} if(mes == 6){
+    todaysMonth.innerHTML = "Jul";
+    imgJn.classList.remove('active');
+    imgJl.classList.toggle('active');
+
+} if(mes == 7){
+    todaysMonth.innerHTML = "Ago";
+    imgJl.classList.remove('active');
+    imgAg.classList.toggle('active');
+
+} if(mes == 8){
+    todaysMonth.innerHTML = "Set";
+    imgAg.classList.remove('active');
+    imgSe.classList.toggle('active');
+
+} if(mes == 9){
+    todaysMonth.innerHTML = "Out";
+    imgSe.classList.remove('active');
+    imgOu.classList.toggle('active');
+
+} if(mes == 10){
+    todaysMonth.innerHTML = "Nov";
+    imgOu.classList.remove('active');
+    imgNo.classList.toggle('active');
+
+} if(mes == 11){
+    todaysMonth.innerHTML = "Dec";
+    imgNo.classList.remove('active');
+    imgDe.classList.toggle('active');
+}
+var monthImage = document.querySelector('.active');
+
+//configuração dia da semana
+
+var weekDay = document.querySelector('.week');
+if(diaDaSemana == 1){
+    weekDay.innerHTML = "Seg";
+} if(diaDaSemana == 2){
+    weekDay.innerHTML = "Ter";
+} if(diaDaSemana == 3){
+    weekDay.innerHTML = "Qua";
+} if(diaDaSemana == 4){
+    weekDay.innerHTML = "Qui";
+} if(diaDaSemana == 4){
+    weekDay.innerHTML = "Sex";
+} if(diaDaSemana == 6){
+    weekDay.innerHTML = "Sab";
+} if(diaDaSemana == 7){
+    weekDay.innerHTML = "Dom";
+}
+
+</script>
 </body>
 </html>
