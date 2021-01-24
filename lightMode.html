@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokemon Widget</title>
+<style type="text/css">
+
+.content{
+    position: relative; 
+    width: 444px;
+    height: 143px;
+    margin-top: 130px;
+    background-color: #F3F3F3;
+    border-radius: 29px;
+    border: 1px solid black;
+    display: flex;
+ }
+.dia{
+    background-color: #F96549;
+    border-radius: 29px 0 0 29px;
+    display: flex;
+    flex-direction: column;
+    width:143px;
+    height: 143px;
+    align-items: center;
+    justify-content: center;
+    color: #F3F3F3;
+}
+
+.msg{
+    width: 301px;
+    border-radius: 0 29px 29px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+p{
+    font-family: arial;
+    font-size: 55px;
+    font-weight: bold;
+}
+
+.day{
+    font-family: arial;
+    font-size: 68px;
+    font-weight: bold;
+}
+
+.month, .week {
+    align-self: flex-start;
+    margin-left: 30px;
+    font-size: 18px;
+    font-family: arial;
+}
+
+.img-month{
+    display: none;
+    
+}
+
+.active{
+    display: block;
+    width: 155px;
+    height: 170px;
+    position: absolute;
+    z-index: 2;
+    margin-left: 280px;
+    margin-top: -120px; 
+}
+
+/*month colors*/
+
+.fev{
+    background-color: #92DFDE;
+    
+}
+
+.mar{
+    background-color: #F67B95;
+}
+.abr{
+    background-color: #F6D698;
+}
+.mai{
+    background-color: #F9CBD7;
+}
+.jun{
+    background-color: #F1A287;
+}
+.jul{
+    background-color: #E07D37;
+}
+.ago{
+    background-color: #64B51A ;
+}
+.set{
+    background-color: #AD8CAD;
+}
+.se{
+    width: 170px;
+}
+.out{
+    background-color: #5D1F88;
+}
+.nov{
+    background-color: #697BB8;
+}
+img.no{
+    width: 227px;
+    margin-left: 250px;
+}
+.dec{
+    background-color: #CDEE80;
+}
+</style>
+</head>
+<body>
+
+    <img src="./img/jan.png" alt="" class="img-month ja">
+    <img src="./img/fev.png" alt="" class="img-month fe">
+    <img src="./img/mar.png" alt="" class="img-month mr">
+    <img src="./img/abr.png" alt="" class="img-month ab">
+    <img src="./img/mai.png" alt="" class="img-month ma">
+    <img src="./img/jun.png" alt="" class="img-month jn">
+    <img src="./img/jul.png" alt="" class="img-month jl">
+    <img src="./img/ago.png" alt="" class="img-month ag">
+    <img src="./img/set.png" alt="" class="img-month se">
+    <img src="./img/out.png" alt="" class="img-month ou">
+    <img src="./img/nov.png" alt="" class="img-month no">
+    <img src="./img/dec.png" alt="" class="img-month de">
+
+    <div class="content">
+        <div class="dia">
+        <span class="month"></span>
+        <span class="day"></span>
+        <span class="week"></span>
+        </div>
+        <div class="msg">
+        <p class="hour">Bom Dia!</p>
+        </div>
+    </div>
+<script type="text/javascript">
+
+//datas atualizadas------------------------------
+var data = new Date();
+var hora = data.getHours();
+var diaDaSemana = data.getDay();
+var dia = data.getDate();
+var mes = data.getMonth();
+
+//configuração mensagem--------------------------
+var hourNow = document.querySelector('.hour');
+
+if(hora > 05 || hora < 12 ){
+    hourNow.innerHTML = "Bom Dia!";
+} if (hora >= 12 || hora <= 18) {
+    hourNow.innerHTML = "Boa Tarde!";
+}  if (hora > 18 || hora <= 04){
+    hourNow.innerHTML = "Boa Noite!"
+}
+
+//configuração dia---------------------------------
+var todaysDate = document.querySelector('.day');
+todaysDate.innerHTML = dia;
+
+//configuração mês----------------------------------
+var todaysMonth = document.querySelector('.month');
+var boxContent = document.querySelector('.dia');
+var imgJa = document.querySelector('.ja');
+var imgFe = document.querySelector('.fe');
+var imgMr = document.querySelector('.mr');
+var imgAb = document.querySelector('.ab');
+var imgMa = document.querySelector('.ma');
+var imgJn = document.querySelector('.jn');
+var imgJl = document.querySelector('.jl');
+var imgAg = document.querySelector('.ag');
+var imgSe = document.querySelector('.se');
+var imgOu = document.querySelector('.ou');
+var imgNo = document.querySelector('.no');
+var imgDe = document.querySelector('.de');
+
+if(mes == 0){
+    todaysMonth.innerHTML = "Jan";
+    imgJa.classList.toggle('active');
+
+    
+} if(mes == 1){
+    todaysMonth.innerHTML = "Fev";
+    imgJa.classList.remove('active');
+    imgFe.classList.toggle('active');
+    boxContent.classList.toggle('fev');
+  
+} if(mes == 2){
+    todaysMonth.innerHTML = "Mar";
+    imgFe.classList.remove('active');
+    imgMr.classList.toggle('active');
+    boxContent.classList.toggle('mar');
+  
+} if(mes == 3){
+    todaysMonth.innerHTML = "Abr";
+    imgMr.classList.remove('active');
+    imgAb.classList.toggle('active');
+    boxContent.classList.toggle('abr');
+
+} if(mes == 4){
+    todaysMonth.innerHTML = "Mai";
+    imgAb.classList.remove('active');
+    imgMa.classList.toggle('active');
+    boxContent.classList.toggle('mai');
+
+} if(mes == 5){
+    todaysMonth.innerHTML = "Jun";
+    imgMa.classList.remove('active');
+    imgJn.classList.toggle('active');
+    boxContent.classList.toggle('jun');
+
+} if(mes == 6){
+    todaysMonth.innerHTML = "Jul";
+    imgJn.classList.remove('active');
+    imgJl.classList.toggle('active');
+    boxContent.classList.toggle('jul');
+
+} if(mes == 7){
+    todaysMonth.innerHTML = "Ago";
+    imgJl.classList.remove('active');
+    imgAg.classList.toggle('active');
+    boxContent.classList.toggle('ago');
+
+} if(mes == 8){
+    todaysMonth.innerHTML = "Set";
+    imgAg.classList.remove('active');
+    imgSe.classList.toggle('active');
+    imgSe.classList.toggle('se');
+    boxContent.classList.toggle('set');
+
+} if(mes == 9){
+    todaysMonth.innerHTML = "Out";
+    imgSe.classList.remove('active');
+    imgOu.classList.toggle('active');
+    boxContent.classList.toggle('out');
+
+} if(mes == 10){
+    todaysMonth.innerHTML = "Nov";
+    imgOu.classList.remove('active');
+    imgNo.classList.toggle('active');
+    imgNo.classList.toggle('se');
+    boxContent.classList.toggle('nov');
+
+} if(mes == 11){
+    todaysMonth.innerHTML = "Dec";
+    imgNo.classList.remove('active');
+    imgDe.classList.toggle('active');
+    boxContent.classList.toggle('dec');
+
+}
+var monthImage = document.querySelector('.active');
+
+//configuração dia da semana-------------------------
+
+var weekDay = document.querySelector('.week');
+if(diaDaSemana == 1){
+    weekDay.innerHTML = "Seg";
+} if(diaDaSemana == 2){
+    weekDay.innerHTML = "Ter";
+} if(diaDaSemana == 3){
+    weekDay.innerHTML = "Qua";
+} if(diaDaSemana == 4){
+    weekDay.innerHTML = "Qui";
+} if(diaDaSemana == 5){
+    weekDay.innerHTML = "Sex";
+} if(diaDaSemana == 6){
+    weekDay.innerHTML = "Sab";
+} if(diaDaSemana == 0){
+    weekDay.innerHTML = "Dom";
+}
+
+console.log(diaDaSemana);
+
+</script>
+</body>
+</html>
